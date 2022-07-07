@@ -19,10 +19,10 @@ namespace S04
             int result = value * value * value;
             return result;
         }
-        public static int Power( long value, long power )
+        public static long Power( long value, long power )
         {
             long result = 1;
-            for (int i = 0; i < value; i++)
+            for (int i = 0; i < power; i++)
             {
                 result = value * value;
             }
@@ -43,6 +43,37 @@ namespace S04
                     Console.WriteLine( "数値を入力してください" );
             }
                 return result;
+        }
+
+        //ハンズオン04の関数
+        public static double ParseArgsAndWaitInputIfParseFailed( string[ ] argumeats, int argumetIndes ){
+            double result = 0;
+            bool weightOptionIsValid = false;
+
+            if ( argumeats.Length > 0 ){
+                string args = argumeats[ 0 ];
+                weightOptionIsValid = double.TryParse( args, out result );
+            }
+            if ( !weightOptionIsValid ){
+                //Console.WriteLine( askText );
+                result = WaitInputParseToDouble( );
+            }
+            return result;
+        }
+
+        //ハンズオン05の関数
+        public static void NormalSample( int value ){
+            value += 1;
+        }
+        public static void RefSample( ref int value ){
+            value += 1;
+        }
+
+        //ハンズオン06の関数
+        public static ( double, double, double ) GetVectorMagnitudeAndNormalized( double x, double y ){
+            double magnitude = Math.Sqrt( x * x + y * y );
+            
+            return ( magnitude, x / magnitude, y / magnitude );
         }
     }
 }
