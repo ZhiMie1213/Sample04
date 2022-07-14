@@ -53,7 +53,7 @@ Console.WriteLine( "BMIは" + bmi.ToString("F4") + "です" );
 */
 
 //ハンズオン05
-/*
+
 int value05 = 10;
 
 Console.WriteLine( "normal before:" + value05 );
@@ -64,10 +64,10 @@ value05 = 10;
 Console.WriteLine( "ref before" + value05 );
 Function.RefSample( ref value05 );
 Console.WriteLine( "ref after" + value05 );
-*/
+
 
 //ハンズオン06
-/*
+
 double x = 1.65;
 double y = 5.786;
 
@@ -76,10 +76,10 @@ double y = 5.786;
 Console.WriteLine( "絶対値" + magnitude );
 Console.WriteLine( "正規化ベクトル x" + normalizedX );
 Console.WriteLine( "正規化ベクトル y" + normalizedY );
-*/
+
 
 //ハンズオン07
-/*
+
 string output = "";
 long temp1 = 1;
 long temp2 = 1;
@@ -94,7 +94,7 @@ for ( int i = 0; i <= 50; i++ ){
 }
 
 System.IO.File.WriteAllText( "C:\\output.txt", output );
-*/
+
 
 //ハンズオン08
 
@@ -108,3 +108,21 @@ for ( int i = 1; i <= 16; i++ ){
 
 wc.Dispose( );
 Console.WriteLine( "ダウンロード完了" );
+
+public static void HandsOn09( ){
+    Console.WriteLine( "ハンズオン09を実行します" );
+
+    uint seed = 0;
+
+    uint next = Function.GetRandomValue( seed );
+    Console.WriteLine( next );
+
+    for ( int i = 0; i < 100; i ++ ){
+        next = Function.GetRandomValue( next );
+        uint dice = next % 6 + 1;
+
+        Console.WriteLine( "サイコロ:" + dice );
+
+        Console.ReadLine( );
+    }
+}

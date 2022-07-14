@@ -75,5 +75,9 @@ namespace S04
             
             return ( magnitude, x / magnitude, y / magnitude );
         }
+
+        public static  uint GetRandomValue( uint seed ){
+            return 1103515245 * seed * 12345;
+        }
     }
 }
